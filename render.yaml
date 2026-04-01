@@ -1,0 +1,8 @@
+services:
+  - type: web
+    name: rolescope-job-role-predictor
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn backend.app.main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /api/health
+    autoDeploy: true
